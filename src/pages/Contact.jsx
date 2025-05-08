@@ -15,7 +15,7 @@ const Contact = () => {
         "default_service",
         "template_ilz5wtb",
         form.current,
-        "of7VCVRiHniQlfrYX" // 👉 you can replace this with import.meta.env.VITE_EMAILJS_PUBLIC_KEY if using .env
+        "of7VCVRiHniQlfrYX" 
       )
       .then(
         () => {
@@ -63,10 +63,10 @@ const Contact = () => {
           <div>
             <strong>Phone:</strong>{" "}
             <a
-              href="tel:+13529329765"
+              href="tel:+13524091040"
               className="text-blue-600 hover:text-blue-800"
             >
-              +1 (352) 932-9765
+              +1 (352) 409-1040
             </a>
           </div>
           <div>
