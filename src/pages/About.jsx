@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import tonyImg from "../assets/imgs/tony.png"; // ✅ Make sure you have tony.png in /src/assets/imgs
 
 const About = () => {
   return (
@@ -33,6 +34,23 @@ const About = () => {
           convenience, we bring premium detailing services directly to your
           doorstep.
         </p>
+
+        {/* Tony's image and bio */}
+        <div className="flex flex-col items-center mb-6">
+          <img
+            src={tonyImg}
+            alt="Tony, Owner of Bear's Mobile Detailing"
+            className="w-32 h-32 rounded-full object-cover mb-4"
+          />
+          <h2 className="text-xl font-semibold mb-1">Meet Tony</h2>
+          <p className="text-center text-gray-600">
+            Tony is the heart and hands behind Bear’s Mobile Detailing. With
+            years of experience, a passion for perfection, and a commitment to
+            customer satisfaction, Tony ensures every vehicle he touches looks
+            its absolute best. When you book with Bear’s, you’re getting Tony’s
+            personal guarantee of quality.
+          </p>
+        </div>
 
         <div className="space-y-4 text-gray-700">
           <div>

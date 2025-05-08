@@ -1,33 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import example1 from "../assets/imgs/example1.png";
 import example2 from "../assets/imgs/example2.png";
 import example3 from "../assets/imgs/example3.png";
+import example4 from "../assets/imgs/example4.png";
+import example5 from "../assets/imgs/example5.png";
+import example6 from "../assets/imgs/example6.png";
+import example7 from "../assets/imgs/example7.png";
+import example8 from "../assets/imgs/example8.png";
+import example9 from "../assets/imgs/example9.png";
+import example10 from "../assets/imgs/example10.png";
+import example11 from "../assets/imgs/example11.png";
+import example12 from "../assets/imgs/example12.png";
+import example13 from "../assets/imgs/example13.png";
+import example14 from "../assets/imgs/example14.png";
+import example15 from "../assets/imgs/example15.png";
 
-const examples = [
-  {
-    id: 1,
-    image: example1,
-    title: "Full Exterior Detail",
-    description:
-      "Deep wash, wax, and polish on this black SUV — showroom shine restored.",
-  },
-  {
-    id: 2,
-    image: example2,
-    title: "Interior Deep Clean",
-    description:
-      "Complete interior shampoo and leather treatment for this luxury sedan.",
-  },
-  {
-    id: 3,
-    image: example3,
-    title: "Headlight Restoration",
-    description: "Foggy headlights brought back to clear, bright condition.",
-  },
+const images = [
+  example1,
+  example2,
+  example3,
+  example4,
+  example5,
+  example6,
+  example7,
+  example8,
+  example9,
+  example10,
+  example11,
+  example12,
+  example13,
+  example14,
+  example15,
 ];
 
 const Examples = () => {
+  const [current, setCurrent] = useState(0);
+
+  const prevSlide = () => {
+    setCurrent((current - 1 + images.length) % images.length);
+  };
+
+  const nextSlide = () => {
+    setCurrent((current + 1) % images.length);
+  };
+
   return (
     <div className="flex flex-col items-center px-4 py-8">
       {/* Nav links */}
@@ -49,28 +66,34 @@ const Examples = () => {
         </Link>
       </nav>
 
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-6">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Examples of Our Work
         </h1>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {examples.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
-                <p className="text-gray-600 text-sm">{item.description}</p>
-              </div>
-            </div>
-          ))}
+
+        <div className="relative w-full">
+          <img
+            src={images[current]}
+            alt={`Example ${current + 1}`}
+            className="w-full h-96 object-cover rounded"
+          />
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+          >
+            Prev
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+          >
+            Next
+          </button>
         </div>
+
+        <p className="text-center text-gray-500 mt-4">
+          Example {current + 1} of {images.length}
+        </p>
       </div>
     </div>
   );
